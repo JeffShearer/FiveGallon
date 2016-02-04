@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203215817) do
+ActiveRecord::Schema.define(version: 20160204000134) do
 
   create_table "batches", force: true do |t|
     t.string   "name"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20160203215817) do
     t.time     "boil_start_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "recipe_id"
   end
+
+  add_index "batches", ["recipe_id"], name: "index_batches_on_recipe_id"
 
   create_table "recipes", force: true do |t|
     t.string   "name"

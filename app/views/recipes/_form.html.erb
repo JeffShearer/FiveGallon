@@ -17,7 +17,7 @@
     <%= f.label "Description" %>
     <%= f.text_field :description %>
     <%= f.label "Style of Beer" %>
-    <%= f.text_field :style %>
+    <%= f.select(:style, [['Brown Ale'], ['IPA'], ['Pale Ale']] ) %>
     <%= f.submit %>
   </div>
 <% end %>
