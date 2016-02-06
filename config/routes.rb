@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :recipes
+  resources :recipes do
+    resources :batches
+  end
 
-  resources :batches
 
   root 'pages#home'
 

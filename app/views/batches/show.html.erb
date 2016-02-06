@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p>Batch ID: <%= @batch.id %></p>
 
-<%= link_to 'Edit', edit_batch_path(@batch) %> |
-<%= link_to 'Back', batches_path %>
+<%= link_to 'Show', [@batch.recipe, @batch] %> |
+<%= link_to 'Back', recipe_batches_path(@batch.recipe) %>
