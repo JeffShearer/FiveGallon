@@ -1,4 +1,12 @@
-<%= link_to "Five Gallon", root_path %>  
-<%= link_to "View Recipes", recipes_path %> |  
-<%= link_to "About", pages_about_path %> | 
-<%= link_to "Contact", pages_contact_path %>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <%= link_to "5G", root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "View Recipes", recipes_path %></li>
+            <li><%= link_to "About", pages_about_path %></li>
+            <li><%= link_to "Contact", pages_contact_path %></li>
+        </ul>
+    </div>
+</nav>

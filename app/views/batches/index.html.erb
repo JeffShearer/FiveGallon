@@ -1,10 +1,10 @@
-<h1>Batches using this</h1>
+<h1>Batches using this recipe</h1>
 
 <table>
   <tbody>
     <% @batches.each do |batch| %>
       <tr>
-        <td>Recipe ID <%= batch.recipe_id %></td>
+        <td>Recipe ID <%= batch.recipe.name %></td>
         <td>Brew Date: <%= batch.brew_date %></td>
         <td><%= link_to 'Show', [batch.recipe, batch] %></td>
         <td><%= link_to 'Edit', edit_recipe_batch_path(batch.recipe, batch) %></td>
@@ -15,5 +15,5 @@
 </table>
 
 <br>
-
+s
 <%= link_to 'New Batch', new_recipe_batch_path %>

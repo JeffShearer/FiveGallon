@@ -1,3 +1,6 @@
+
+
+
 <%= form_for([@batch.recipe, @batch]) do |f| %>
   <% if @batch.errors.any? %>
     <div id="error_explanation">
@@ -10,9 +13,7 @@
       </ul>
     </div>
   <% end %>
-
   <div class="actions">
-
     <%= f.submit %>
   </div>
 <% end %>
