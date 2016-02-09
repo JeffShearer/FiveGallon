@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206014208) do
+ActiveRecord::Schema.define(version: 20160209032554) do
 
   create_table "batches", force: true do |t|
     t.string   "name"
@@ -24,12 +24,35 @@ ActiveRecord::Schema.define(version: 20160206014208) do
 
   add_index "batches", ["recipe_id"], name: "index_batches_on_recipe_id"
 
+  create_table "ingredients", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.text     "description"
+    t.decimal  "amount"
+    t.string   "use"
+    t.integer  "boil_time"
+    t.decimal  "aa"
+    t.decimal  "ferment_temp"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "recipe_id"
+  end
+
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id"
+
   create_table "recipes", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "style"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "og"
+    t.decimal  "fg"
+    t.integer  "ibu"
+    t.integer  "srm"
+    t.decimal  "abv"
+    t.integer  "primary_days"
+    t.integer  "secondary_days"
   end
 
 end

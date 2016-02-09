@@ -4,6 +4,42 @@
 <p><strong>Style: </strong><%= @recipe.style %></p>
 <p><strong>Description: </strong><%= @recipe.description %></p>
 
+<h2>Add ingredients</h2>
+<%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
+  <form>
+  <div class="form-group">
+    <%= f.label "Ingredient Type" %>
+    <%= f.select(:type, ([['Fermentable'], ['Hops'], ['Yeast'], ['Other']]), {}, {class: "form-control"}) %>
+</div>
+    <div class="form-group">
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :amount, class: "form-control", placeholder: "Amount (in ounces)" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :use, class: "form-control", placeholder: "Use" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :boil_time, class: "form-control", placeholder: "Boil Time (in minutes)" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :aa, class: "form-control", placeholder: "Alpha Acid %" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :ferment_temp, class: "form-control", placeholder: "Fermentation Temperature" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
+  </div>
+    <div class="form-group">
+    <%= f.submit "Add to Recipe", class: "btn btn-primary" %>
+  </div>
+  </form>
+<% end %>
+
 <%= link_to "View Batches", recipe_batches_path(@recipe) %> |  
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |

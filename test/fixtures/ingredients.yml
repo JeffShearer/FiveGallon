@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  description: MyText
+  amount: 9.99
+  use: MyString
+  boil_time: 1
+  aa: 9.99
+  ferment_temp: 9.99
+
+two:
+  name: MyString
+  type: 
+  description: MyText
+  amount: 9.99
+  use: MyString
+  boil_time: 1
+  aa: 9.99
+  ferment_temp: 9.99
