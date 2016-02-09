@@ -1,3 +1,5 @@
+
+
 <p><strong>Name: </strong><%= @recipe.name %></p>
 <p><strong>Style: </strong><%= @recipe.style %></p>
 <p><strong>Description: </strong><%= @recipe.description %></p>
@@ -6,7 +8,7 @@
 <p><strong>Final Gravity: </strong><%= @recipe.fg %></p>
 <p><strong>Alcohol by Volume (ABV): </strong><%= @recipe.abv %>%</p>
 <p><strong>SRM (Color): </strong><%= @recipe.srm %></p>
-<p><strong>IBUs (Bitterness) </strong><%= @recipe.ibu %></p>
+<p><strong>IBUs (Bitterness): </strong><%= @recipe.ibu %></p>
 
 <h2>Ingredients</h2>
 
@@ -60,7 +62,8 @@
     <%= f.text_field :boil_time, class: "form-control", placeholder: "Boil Time (in minutes)" %>
   </div>
   <div class="form-group">
-    <%= f.text_field :aa, class: "form-control", placeholder: "Alpha Acid %" %>
+
+  <%= f.text_field :aa, class: "form-control", placeholder: "Alpha Acid" %>
   </div>
   <div class="form-group">
     <%= f.text_field :ferment_temp, class: "form-control", placeholder: "Fermentation Temperature" %>
