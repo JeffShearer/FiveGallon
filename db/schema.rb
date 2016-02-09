@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160209032554) do
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "ingredient_type"
     t.text     "description"
     t.decimal  "amount"
     t.string   "use"

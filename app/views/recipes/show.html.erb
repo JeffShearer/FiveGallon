@@ -1,15 +1,50 @@
-<p id="notice"><%= notice %></p>
-
 <p><strong>Name: </strong><%= @recipe.name %></p>
 <p><strong>Style: </strong><%= @recipe.style %></p>
 <p><strong>Description: </strong><%= @recipe.description %></p>
+
+<p><strong>Original Gravity: </strong><%= @recipe.og %></p>
+<p><strong>Final Gravity: </strong><%= @recipe.fg %></p>
+<p><strong>Alcohol by Volume (ABV): </strong><%= @recipe.abv %>%</p>
+<p><strong>SRM (Color): </strong><%= @recipe.srm %></p>
+<p><strong>IBUs (Bitterness) </strong><%= @recipe.ibu %></p>
+
+<h2>Ingredients</h2>
+
+<table class="table">
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Amount</th>
+<th>Use</th>
+<th>Boil Time</th>
+<th>Alpha Acid %</th>
+<th>Fermentation Temperature</th>
+<th>Description</th>
+<th></th>
+</tr>
+<% @recipe.ingredients.each do |ingredient| %>
+<tr>
+  <td><%= ingredient.ingredient_type %></td>
+  <td><%= ingredient.name %></td>
+  <td><%= ingredient.amount %></td>
+  <td><%= ingredient.use %></td>
+  <td><%= ingredient.boil_time %></td>
+  <td><%= ingredient.aa %></td>
+  <td><%= ingredient.ferment_temp %></td>
+  <td><%= ingredient.description %></td>
+  <td><%= link_to 'Remove', [ingredient.recipe, ingredient],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+</table>
 
 <h2>Add ingredients</h2>
 <%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
   <form>
   <div class="form-group">
     <%= f.label "Ingredient Type" %>
-    <%= f.select(:type, ([['Fermentable'], ['Hops'], ['Yeast'], ['Other']]), {}, {class: "form-control"}) %>
+    <%= f.select(:ingredient_type, ([['Fermentable'], ['Hops'], ['Yeast'], ['Other']]), {}, {class: "form-control"}) %>
 </div>
     <div class="form-group">
     <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
