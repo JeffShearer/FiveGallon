@@ -1,7 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+$font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$headings-font-family:           'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
 
 .center {
 	text-align: center;
+}
+
+.navbar-brand {
+     font-weight: bold;
 }

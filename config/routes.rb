@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
+  get 'batches/sample'
+
   get 'pages/contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
