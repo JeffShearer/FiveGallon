@@ -4,11 +4,13 @@
   <tbody>
     <% @batches.each do |batch| %>
       <tr>
-        <td>Recipe ID <%= batch.recipe.name %></td>
+        <td>Recipe ID <%= batch.name %></td>
         <td>Brew Date: <%= batch.brew_date %></td>
-        <td><%= link_to 'Show', [batch.recipe, batch] %></td>
-        <td><%= link_to 'Edit', edit_recipe_batch_path(batch.recipe, batch) %></td>
-        <td><%= link_to 'Destroy', [batch.recipe, batch], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', batch %></td>
+        <% if batch.user == current_user %>
+        <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
+        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -16,4 +18,4 @@
 
 <br>
 s
-<%= link_to 'New Batch', new_recipe_batch_path %>
+<%= link_to 'New Batch', new_batch_path %>

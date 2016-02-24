@@ -1,7 +1,7 @@
 
 
 
-<%= form_for([@batch.recipe, @batch]) do |f| %>
+<%= form_for(@batch) do |f| %>
   <% if @batch.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@batch.errors.count, "error") %> prohibited this batch from being saved:</h2>
@@ -14,6 +14,7 @@
     </div>
   <% end %>
   <div class="actions">
+    <%= f.select :recipe_id, options_for_select(Recipe.all.map{|s|[s.name, s.id]}) %>
     <%= f.submit %>
   </div>
 <% end %>

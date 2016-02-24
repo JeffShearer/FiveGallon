@@ -1,55 +1,35 @@
 class BatchesController < ApplicationController
   before_action :set_batch, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    #First you retrieve the recipe thanks to params[:recipe_id]
-    recipe = Recipe.find(params[:recipe_id])
-    #Next you get all the batches that use this recipe.
-    @batches = recipe.batches
+    @batches = Batch.all
   end
 
 
   def show
-    #first you retrieve the recipe thanks to params[:recipe_id]
-    recipe = Recipe.find(params[:recipe_id])
-    #Next you retrieve the batch thanks for params[:id]
-    @batch = recipe.batches.find(params[:id])
   end
 
   def new
-    #first you retrieve the recipe thanks to params[:recipe_id]
-    recipe = Recipe.find(params[:recipe_id])
-    @batch = recipe.batches.build
-
-
+    @batch = current_user.batches.build
   end
 
   def edit
-    #first you retrieve the recipe thanks to params[:recipe_id]
-    recipe = Recipe.find(params[:recipe_id])
-    @batch = recipe.batches.find(params[:id])
   end
 
 
   def create
-    #first you retrieve the recipe thanks to params[:recipe_id]
-    recipe = Recipe.find(params[:recipe_id])
-    user = current_user
-    @batch = recipe.batches.new(batch_params)
+    @batch = current_user.batches.build(batch_params)
     if @batch.save
-      redirect_to recipe_batches_url, notice: 'Batch was successfully created.'
+      redirect_to batches_url, notice: 'Batch was successfully created.'
     else
       render :new
     end
   end
 
   def update
-    #first you retrieve the recipe thanks to params[:recipe_id]
-    recipe = Recipe.find(params[:recipe_id])
-    @batch = recipe.batches.find(params[:id])
-
     if @batch.update(batch_params)
-      redirect_to recipe_batches_url, notice: 'Batch was successfully updated.' 
+      redirect_to batches_url, notice: 'Batch was successfully updated.' 
     else
       render :edit
 
@@ -58,21 +38,22 @@ class BatchesController < ApplicationController
 
 
   def destroy
-    #first you retrieve the recipe thanks to params[:recipe_id]
-    recipe = Recipe.find(params[:recipe_id])
-    @batch = recipe.batches.find(params[:id])
     @batch.destroy
-    redirect_to recipe_batches_url
+    redirect_to batches_url
   end
 
   private
     def set_batch
-      recipe = Recipe.find(params[:recipe_id])
       @batch = Batch.find(params[:id])
+    end
+
+    def correct_user
+      @batch = current_user.batch.find_by(id: params[:id])
+      redirect_to batches_path, notice: "Not authorized to edit this batch" if @batch.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
-      params.permit(:description, :image, :user_id)
+      params.require(:batch).permit(:description, :name, :recipe_id)
     end
 end

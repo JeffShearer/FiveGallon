@@ -1,8 +1,10 @@
 <p>Batch ID: <%= @batch.id %></p>
+<p>Batch Name: <%= @batch.name %></p>
 <p>User ID: <%= @batch.user_id %></p>
-<ul class="list-group">
-  
-</ul>
+<p>Recipe ID: <%= @batch.recipe_id %></p>
+<p>Recipe name: <%= @batch.recipe.name %></p>
+
+
 <h2>Ingredients you'll need</h2>
 <% @batch.recipe.ingredients.each do |ingredient| %>
  <li class="list-group-item"><%= ingredient.name %> (<%=ingredient.ingredient_type %>), <%= ingredient.amount %> oz</li>
@@ -10,5 +12,8 @@
  
 <% end %>
 </ul>
-<%= link_to 'Show', [@batch.recipe, @batch] %> |
-<%= link_to 'Back', recipe_batches_path(@batch.recipe) %>
+</ul>
+<% if @batch.user == current_user %>
+  <%= link_to 'Edit', edit_batch_path(@batch) %>
+<% end %>
+<%= link_to 'Back', batches_path %>
