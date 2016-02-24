@@ -21,6 +21,7 @@ class BatchesController < ApplicationController
     recipe = Recipe.find(params[:recipe_id])
     @batch = recipe.batches.build
 
+
   end
 
   def edit
@@ -33,6 +34,7 @@ class BatchesController < ApplicationController
   def create
     #first you retrieve the recipe thanks to params[:recipe_id]
     recipe = Recipe.find(params[:recipe_id])
+    user = current_user
     @batch = recipe.batches.new(batch_params)
     if @batch.save
       redirect_to recipe_batches_url, notice: 'Batch was successfully created.'
@@ -71,6 +73,6 @@ class BatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def batch_params
-      params.permit(:description, :image)
+      params.permit(:description, :image, :user_id)
     end
 end

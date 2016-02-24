@@ -1,5 +1,9 @@
 <div class="jumbotron center">
 <h1>Five Gallon</h1>
 <p>Your home for learning to homebrew great extract-based beer.</p>
-<%= link_to "View Recipes", recipes_path, class: "btn btn-primary" %>
+<%= link_to "View Recipes", recipes_path, class: "btn btn-default" %>
+<% if user_signed_in? %>
+<% else %>
+<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+<% end %>
 </div>
