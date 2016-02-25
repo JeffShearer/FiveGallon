@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'pages/about'
 
-  get 'batches/sample'
+  get 'pages/sample'
 
   get 'pages/contact'
 

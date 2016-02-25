@@ -5,6 +5,11 @@ $font-family-sans-serif:           'Lato', 'Helvetica Neue', Helvetica, Arial, s
 
 $headings-font-family:           'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
+$navbar-default-bg: #1abc9c;
+$navbar-default-link-color: #FFF;
+
+$brand-primary: #16a085;
+
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -18,3 +23,5 @@ $headings-font-family:           'Roboto Slab', 'Helvetica Neue', Helvetica, Ari
 .navbar-brand {
      font-weight: bold;
 }
+
+

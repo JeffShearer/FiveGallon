@@ -1,19 +1,19 @@
-<p>Batch ID: <%= @batch.id %></p>
-<p>Batch Name: <%= @batch.name %></p>
-<p>User ID: <%= @batch.user_id %></p>
-<p>Recipe ID: <%= @batch.recipe_id %></p>
-<p>Recipe name: <%= @batch.recipe.name %></p>
+<div class="center">
+<h1><%= @batch.user.email %>'s <%= @batch.recipe.name %> <%= @batch.recipe.style %></h1>
+<p>Brewed on <%= @batch.brew_date %></p>
+<% if @batch.user == current_user %>
+  <%= link_to 'Go Back', batches_path, class: "btn btn-default" %> <%= link_to 'Edit', edit_batch_path(@batch), class: "btn btn-default" %>
+<% end %>
 
+</div>
 
 <h2>Ingredients you'll need</h2>
+<ul>
 <% @batch.recipe.ingredients.each do |ingredient| %>
  <li class="list-group-item"><%= ingredient.name %> (<%=ingredient.ingredient_type %>), <%= ingredient.amount %> oz</li>
 
  
 <% end %>
 </ul>
-</ul>
-<% if @batch.user == current_user %>
-  <%= link_to 'Edit', edit_batch_path(@batch) %>
-<% end %>
-<%= link_to 'Back', batches_path %>
+
+

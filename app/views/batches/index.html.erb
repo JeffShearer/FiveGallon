@@ -1,21 +1,18 @@
-<h1>Batches using this recipe</h1>
-
-<table>
-  <tbody>
+<h1 class="center">Your Batches</h1>
+  
+  <ul>
     <% @batches.each do |batch| %>
-      <tr>
-        <td>Recipe ID <%= batch.name %></td>
-        <td>Brew Date: <%= batch.brew_date %></td>
-        <td><%= link_to 'Show', batch %></td>
+    <li class="list-group-item">
+        <%= batch.recipe.name %><br/>
+        Started on <%= batch.brew_date %>
+        <%= link_to 'View', batch %>
         <% if batch.user == current_user %>
-        <td><%= link_to 'Edit', edit_batch_path(batch) %></td>
-        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Edit', edit_batch_path(batch) %></td>
+        <%= link_to 'Delete', batch, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </tr>
+        </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
 
 <br>
-s
-<%= link_to 'New Batch', new_batch_path %>
+<%= link_to 'New Batch', new_batch_path, class: "btn btn-default" %>
