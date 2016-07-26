@@ -44,11 +44,13 @@
 <h2>Add ingredients</h2>
 <%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
   <form>
+
   <div class="form-group">
     <%= f.label "Ingredient Type" %>
     <%= f.select(:ingredient_type, ([['Fermentable'], ['Hops'], ['Yeast'], ['Other']]), {}, {class: "form-control"}) %>
-</div>
-    <div class="form-group">
+  </div>
+
+  <div class="form-group">
     <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
   </div>
 
