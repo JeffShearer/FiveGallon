@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160223232129) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "batches", force: true do |t|
     t.string   "name"
     t.date     "brew_date"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 20160223232129) do
     t.integer  "user_id"
   end
 
-  add_index "batches", ["recipe_id"], name: "index_batches_on_recipe_id"
-  add_index "batches", ["user_id"], name: "index_batches_on_user_id"
+  add_index "batches", ["recipe_id"], name: "index_batches_on_recipe_id", using: :btree
+  add_index "batches", ["user_id"], name: "index_batches_on_user_id", using: :btree
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160223232129) do
     t.integer  "recipe_id"
   end
 
-  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
 
   create_table "recipes", force: true do |t|
     t.string   "name"
@@ -72,7 +75,7 @@ ActiveRecord::Schema.define(version: 20160223232129) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
