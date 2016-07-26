@@ -26,3 +26,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'coffee-script-source', '1.8.0'
 
 gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
+
+#required for Heroku
+gem 'rails_12factor', group: :production
