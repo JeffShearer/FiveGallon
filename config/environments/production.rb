@@ -77,5 +77,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Note to set this to actual hostname in Heroku
-   config.action_mailer.default_url_options = { host => 'fivegal.com' }
+   config.action_mailer.default_url_options = { host => 'https://immense-sands-18272.herokuapp.com/' }
 end
