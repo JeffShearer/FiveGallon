@@ -1,8 +1,8 @@
 <nav class="navbar navbar-default navbar-static-top">
+<div class="container-fluid">
     <div class="navbar-header">
         <%= link_to "FiveGallon", root_path, class: "navbar-brand" %>
     </div>
-    
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
@@ -15,5 +15,6 @@
             <li><%= link_to "Log In", new_user_session_path %></li>
             <% end %>
         </ul>
+    </div>
     </div>
 </nav>

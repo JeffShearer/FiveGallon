@@ -22,19 +22,19 @@
     <%= f.select(:style, ([['Brown Ale'], ['IPA'], ['Pale Ale']]), {}, {class: "form-control"}) %>
 </div>
 <div class="form-group">
-    <%= f.text_area :og, class: "form-control", placeholder: "Original Gravity" %>
+    <%= f.number_field :og, class: "form-control", placeholder: "Original Gravity" %>
   </div>
   <div class="form-group">
-    <%= f.text_area :fg, class: "form-control", placeholder: "Final Gravity" %>
+    <%= f.number_field :fg, class: "form-control", placeholder: "Final Gravity" %>
   </div>
   <div class="form-group">
-    <%= f.text_area :abv, class: "form-control", placeholder: "ABV %" %>
+    <%= f.number_field :abv, class: "form-control", placeholder: "ABV %" %>
   </div>
   <div class="form-group">
-    <%= f.text_area :srm, class: "form-control", placeholder: "SRM" %>
+    <%= f.number_field :srm, class: "form-control", placeholder: "SRM" %>
   </div>
   <div class="form-group">
-    <%= f.text_area :ibu, class: "form-control", placeholder: "IBUs" %>
+    <%= f.number_field :ibu, class: "form-control", placeholder: "IBUs" %>
   </div>
 
     <div class="form-group">
